@@ -1,0 +1,43 @@
+{
+  "wakas": [
+    {
+      "title": "Stinky Room",
+      "description": "Figure out how to get your room to not stink so much.",
+      "value": 2000,
+      "time": 10,
+      "cost": 0
+    },
+
+    {
+      "title": "Quick workout",
+      "description": "Do a quick workout.",
+      "value": 10,
+      "time": 0.25,
+      "cost": 0
+    },
+
+    {
+      "title": "Buy new shirts",
+      "description": "Buy some new shirts, maybe for work, maybe for non-work, preferably both.",
+      "value": 500,
+      "time": 3,
+      "cost": 80
+    },
+
+    {
+      "title": "Create a cover for your pillow thingy",
+      "description": "Your pillow thingy needs covering.",
+      "value": 200,
+      "time": 10,
+      "cost": 20
+    },
+
+    {
+      "title": "Create waka app",
+      "description": "Create an app that prioritizes what you need to do.",
+      "value": 30000,
+      "time": 100,
+      "cost": 0
+    }
+  ]
+}
