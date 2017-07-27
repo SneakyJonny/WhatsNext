@@ -18,25 +18,18 @@ public class MainActivity extends AppCompatActivity {
 
     private ListView mListView;
 
+    private boolean showCompleted = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
 
-        mListView = (ListView) findViewById(R.id.waka_list_view);    // 1
-        final ArrayList<Waka> wakaList = Waka.getWakasFromFile("wakas.json", this);
-        WakaAdapter adapter = new WakaAdapter(this, wakaList);
-        mListView.setAdapter(adapter);
-
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent myIntent = new Intent(MainActivity.this, DisplayWaka.class);
-                Waka tempWaka = (Waka) mListView.getItemAtPosition(position);
-                System.out.println(tempWaka.title);
-                myIntent.putExtra("waka", tempWaka);
-                startActivity(myIntent);
-            }
-        });
+    @Override
+    protected void onResume() {
+        super.onResume();
+        refreshList();
     }
 
     @Override
@@ -54,11 +47,14 @@ public class MainActivity extends AppCompatActivity {
                 addWaka();
                 return true;
             case R.id.wakaRefresh:
-                //showHelp();
+                refreshList();
                 return true;
             case R.id.wakaHelp:
                 //showHelp();
                 return true;
+            case R.id.wakaToggleCompleted:
+                showCompleted = !showCompleted;
+                refreshList();
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -66,9 +62,31 @@ public class MainActivity extends AppCompatActivity {
 
     /** Called when the user taps the Send button */
     public void addWaka() {
-        Intent intent = new Intent(this, DisplayWaka.class);
-        Waka tempWaka = new Waka();
-        intent.putExtra("waka", tempWaka);
-        startActivity(intent);
+        Intent intent = new Intent(this, EditWaka.class);
+        int result = 0;
+        intent.putExtra("mode", "ADD");
+        startActivityForResult(intent, result);
+    }
+
+    public void refreshList() {
+        mListView = (ListView) findViewById(R.id.waka_list_view);
+        final ArrayList<Waka> wakaList = Waka.getWakas(showCompleted);
+        WakaAdapter adapter = new WakaAdapter(this, wakaList);
+        mListView.setAdapter(adapter);
+
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(MainActivity.this, EditWaka.class);
+                Waka waka = (Waka) mListView.getItemAtPosition(position);
+                intent.putExtra("waka", waka);
+                intent.putExtra("mode", "DISPLAY");
+                startActivity(intent);
+            }
+        });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        refreshList();
     }
 }

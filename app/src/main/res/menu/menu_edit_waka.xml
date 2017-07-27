@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+        android:id="@+id/wakaSave"
+        app:showAsAction="ifRoom|withText"
+        android:title="SAVE">
+    </item>
+    <item
+        android:id="@+id/wakaEdit"
+        app:showAsAction="ifRoom|withText"
+        android:title="EDIT">
+    </item>
+    <item
+        android:id="@+id/wakaCancel"
+        app:showAsAction="ifRoom|withText"
+        android:title="CANCEL">
+    </item>
+    <item
+        android:id="@+id/wakaComplete"
+        app:showAsAction="ifRoom|withText"
+        android:title="COMPLETE">
+    </item>
+    <item
+        android:id="@+id/wakaUncomplete"
+        app:showAsAction="ifRoom|withText"
+        android:title="UNCOMPLETE">
+    </item>
+
+</menu>

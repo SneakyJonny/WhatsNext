@@ -16,5 +16,9 @@
         android:id="@+id/wakaHelp"
         android:title="HELP">
     </item>
+    <item
+        android:id="@+id/wakaToggleCompleted"
+        android:title="TOGGLE COMPLETED">
+    </item>
 
 </menu>

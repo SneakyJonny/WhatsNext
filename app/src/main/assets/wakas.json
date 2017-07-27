@@ -1,6 +1,7 @@
 {
   "wakas": [
     {
+      "id": 0,
       "title": "Stinky Room",
       "description": "Figure out how to get your room to not stink so much.",
       "value": 2000,
@@ -9,6 +10,7 @@
     },
 
     {
+      "id": 1,
       "title": "Quick workout",
       "description": "Do a quick workout.",
       "value": 10,
@@ -17,6 +19,7 @@
     },
 
     {
+      "id": 2,
       "title": "Buy new shirts",
       "description": "Buy some new shirts, maybe for work, maybe for non-work, preferably both.",
       "value": 500,
@@ -25,6 +28,7 @@
     },
 
     {
+      "id": 3,
       "title": "Create a cover for your pillow thingy",
       "description": "Your pillow thingy needs covering.",
       "value": 200,
@@ -33,6 +37,7 @@
     },
 
     {
+      "id": 4,
       "title": "Create waka app",
       "description": "Create an app that prioritizes what you need to do.",
       "value": 30000,
