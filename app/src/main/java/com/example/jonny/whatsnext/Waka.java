@@ -104,7 +104,7 @@ public class Waka implements Comparable<Waka>, Parcelable {
             waka.cost = cursor.getDouble(cursor.getColumnIndexOrThrow(WakaContract.WakaEntry.COL_WAKA_COST));
             waka.time = cursor.getDouble(cursor.getColumnIndexOrThrow(WakaContract.WakaEntry.COL_WAKA_TIME));
             waka.completedOn = cursor.getString(cursor.getColumnIndexOrThrow(WakaContract.WakaEntry.COL_WAKA_COMPLETED_ON));
-            if (!includeCompleted && waka.completedOn != null) {
+            if (!includeCompleted && waka.completedOn != null || includeCompleted && waka.completedOn == null) {
                 continue;
             }
             wakaList.add(waka);
